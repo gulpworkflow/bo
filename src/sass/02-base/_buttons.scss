@@ -1,0 +1,163 @@
+// ===================================================================================
+//  Variables
+// -------------
+
+// -- Selectors
+$all-buttons:     '.btn,
+                   button,
+                   input[type=submit],
+                   input[type=button]' !default;
+
+// -- Transition
+$button-transition     : all $base-duration $base-timing;
+
+// -- Border Radius
+$button-borderRadius   : $base-border-radius; 
+
+// -- Font
+$button-font: (
+  family               : $bold-font-family,
+  weight               : $bold-font-family
+);
+
+// -- Text Size
+$button-textSize: (
+  small                : $base-font-size * .75,
+  default              : $base-font-size,
+  large                : $base-font-size * 1.25
+);
+
+// -- Padding
+$button-padding: (
+  small                : $small-spacing*.75 $base-spacing*.75,
+  default              : $small-spacing $base-spacing,
+  large                : $small-spacing*1.25 $base-spacing*1.25,
+);
+
+// Colors:
+// ------------
+// Default Button
+$default-button: (
+  background        : transparent,
+  outline           : transparent,
+  color             : $ui-color-action,
+  hover-background  : transparent,
+  hover-color       : $ui-color-action
+);
+// Dark Button
+$dark-button: (
+  background        : $ui-color-action,
+  outline           : $ui-color-action,
+  color             : #ffffff, 
+  hover-background  : #12fe66,
+  hover-outline     : #12fe66,
+  hover-color       : #ffffff
+);
+// Light Button
+$light-button: (
+  background        : #ddd,
+  outline           : #ddd,
+  color             : #000,
+  hover-background  : #12fe66,
+  hover-color       : #ffffff
+);
+
+
+// ===================================================================================
+//  Button Styles
+
+
+// -- Default Button
+.btn {
+  display:             inline-block;
+  appearance:          none;
+  padding:             map-get($button-padding, default);
+  background-color:    map-get($default-button, background);
+  border:              2px solid;
+  border-color:        map-get($default-button, background);
+  color:               map-get($default-button, color);
+  border-radius:       $button-borderRadius;
+  cursor:              pointer;
+  font-family:         map-get($button-font, family);
+  font-size:           map-get($button-textSize, default);
+  -webkit-font-smoothing: antialiased;
+  font-weight:         map-get($button-font, weight);
+  line-height:         1;
+  text-decoration:     none;
+  transition:          $button-transition;
+  user-select:         none;
+  vertical-align:      middle;
+  white-space:         nowrap;
+
+  &:hover,
+  &:focus {
+    background-color:  map-get($default-button, hover-background);
+    transition:        $button-transition;
+    color:             map-get($default-button, hover-color);
+  }
+
+  &:disabled, 
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $ui-color-action;
+    }
+  }
+
+  &.small {
+    font-size: map-get($button-textSize, small);
+    padding: map-get($button-padding, small);
+  }
+
+  &.large {
+    font-size: map-get($button-textSize, large);
+    padding: map-get($button-padding, large);
+  }
+}
+
+// -- Dark Button
+.btn-dark {
+  background-color:    map-get($dark-button, background);
+  border-color:        map-get($dark-button, outline);
+  color:               map-get($dark-button, color);
+
+  &:hover {
+    background-color:  map-get($dark-button, hover-background);
+    border-color:      map-get($dark-button, hover-outline);
+    color:             map-get($dark-button, hover-color);
+  }
+
+  &.outline {
+    background-color: transparent !important;
+    color:            map-get($dark-button, outline); 
+  }
+
+  &:hover.outline {
+    color:            map-get($dark-button, hover-outline); 
+  }
+}
+
+// -- Light Button
+.btn-light {
+  background-color:    map-get($light-button, background);
+  border-color:        map-get($light-button, background);
+  color:               map-get($light-button, color);
+
+  &:hover {
+    background-color:  map-get($light-button, hover-background);
+    border-color:      map-get($light-button, hover-background);
+    color:             map-get($light-button, hover-color);
+  }
+
+  &.outline {
+    background-color: transparent !important;
+    color:            map-get($light-button, outline); 
+  }
+
+  &:hover.outline {
+    color:            map-get($light-button, hover-outline); 
+  }
+}
+

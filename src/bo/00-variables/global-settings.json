@@ -1,0 +1,44 @@
+{
+  "colors" : {
+    "brand-1"            : "#ffffff",
+    "brand-2"            : "#ffffff",
+    "brand-3"            : "#ffffff",
+    "tint-base"          : "#ffffff",
+    "alert" : {
+      "success"           : "#ffffff",
+      "info"              : "#ffffff",
+      "warning"           : "#ffffff",
+      "error"             : "#ffffff",
+    }
+  },
+  "breakpoints" : {
+    "xs"                  : "0",
+    "sm"                  : "34em",
+    "md"                  : "48em",
+    "lg"                  : "62em",
+    "xl"                  : "75em"
+  },
+  "grid" : {
+    "columns"             : "12",
+    "max-width"           : "1120px",
+    "gutter-width"        : "1.5rem",
+    "enable-flex"         : true,
+    "enable-gridClasses"  : true,
+  },
+  "sizing" : {
+    "base-boxSizing"      : "border-box",
+    "base-fontSize"       : "16px",
+    "base-lineHeight"     : "1.5",
+    "base-borderRadius"   : ".25rem",
+    "base-spacing"        : "1.5rem",
+    "small-spacing"       : ".75rem"
+  },
+  "animation" : {
+    "default-transition"  : "all 250ms ease-out",
+    "base-timing"         : "ease-out",
+    "base-duration"       : "250ms",
+    "slow-duration"       : "500ms",
+    "medium-duration"     : "300ms",
+    "fast-duration"       : "100ms"
+  }
+}

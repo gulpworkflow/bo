@@ -1,0 +1,65 @@
+// Local Variables
+$switch-width: 52px;
+$switch-padding: 2px;
+$switch-height: 32px;
+$knob-size: $switch-height - ($switch-padding * 2);
+$knob-width: $knob-size;
+$knob-transition: all 0.3s ease;
+$knob-color: #000;
+$switch-active-color: #D4D4D4;
+
+.ToggleSwitch {  
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.ToggleSwitch input {
+  display: none;
+
+  + .checkbox {
+    width: $switch-width;
+    height: $switch-height;
+
+    border: 1px solid #000;
+    cursor: pointer;
+    position: relative;
+    width: $switch-width;
+    z-index: 0;
+
+    &::before {
+      position: absolute;
+      top: $switch-padding;
+      right: 0;
+      bottom: 0;
+      left: $switch-padding;
+      content: "";
+      width: $switch-width - ($switch-padding * 2);
+      z-index: 1;
+    }
+
+    &::after {
+      position: absolute;
+      top: 1px;
+      right: 0;
+      bottom: 0;
+      left: 1px;
+      width: $knob-size;
+      height: $knob-size;
+      background-color: $knob-color;
+      content: "";
+      transition: $knob-transition;
+      z-index: 2;
+    }
+  }
+
+  &:checked {
+    + .checkbox {
+      background-color: $switch-active-color;
+
+      &::after {
+        left: $switch-width - $knob-width - ($switch-padding * 2) + 1px;
+      }
+    }
+  }
+}
