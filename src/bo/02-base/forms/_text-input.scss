@@ -16,7 +16,7 @@ usage: [
 //  Variables
 // -------------
 // Form Colors
-$form-input-background-color:     $base-background-color !default;
+$form-input-background-color:     color(base,light) !default;
 $form-input-border:               2px solid $base-border-color !default;
 // Form Shadows
 $form-box-shadow:                  none !default; // eg: inset 0 1px 3px rgba(#000, 0.06);
@@ -39,7 +39,7 @@ $all-text-inputs: 'input[type=text],
 //  Field Groups
 // -------------
 fieldset {
-  background-color: $secondary-background-color;
+  //background-color: $secondary-background-color;
   border: $base-border;
   margin: 0 0 $small-spacing;
   padding: $base-spacing;

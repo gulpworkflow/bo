@@ -4,6 +4,24 @@
 //
 //====================
 
+/* 
+Variables
+-------------------------------------------------------------------------------------------------------------------
+*/
+$timing: (
+  fade: (
+    entranceEasing    : cubic-bezier(0.36, 0.45, 0.67, 1),
+    exitEasing        : cubic-bezier(0.36, 0.45, 0.67, 1),
+    duration          : 750ms
+  )
+);
+
+$FadeDistanceXY        : 30%;
+
+/* 
+Keyframes
+-------------------------------------------------------------------------------------------------------------------
+*/
 // Fade In
 @keyframes fade-in {
   0% { opacity: 0;}
@@ -20,7 +38,7 @@
 @keyframes fade-inDown {
   0% {
     opacity: 0;
-    transform: translateY(-30%);
+    transform: translateY(-$FadeDistanceXY);
   }
   100% {
     opacity: 1;
@@ -32,11 +50,11 @@
 @keyframes fade-outDown {
   0% {
     opacity: 1;
-    transform: translateY(-30%);
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY($FadeDistanceXY);
   }
 }
 
@@ -44,7 +62,7 @@
 @keyframes fade-inUp {
   0% {
     opacity: 0;
-    transform: translateY(30%);
+    transform: translateY($FadeDistanceXY);
   }
   100% {
     opacity: 1;
@@ -56,11 +74,11 @@
 @keyframes fade-outUp {
   0% {
     opacity: 1;
-    transform: translateY(30%);
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(-$FadeDistanceXY);
   }
 }
 
@@ -68,7 +86,7 @@
 @keyframes fade-inLeft {
   0% {
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-$FadeDistanceXY);
   }
   100% {
     opacity: 1;
@@ -80,11 +98,11 @@
 @keyframes fade-outLeft {
   0% {
     opacity: 1;
-    transform: translateX(-30%);
+    transform: translateX(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(0);
+    transform: translateX(-$FadeDistanceXY);
   }
 }
 
@@ -92,7 +110,7 @@
 @keyframes fade-inRight {
   0% {
     opacity: 0;
-    transform: translateX(30%);
+    transform: translateX($FadeDistanceXY);
   }
   100% {
     opacity: 1;
@@ -104,10 +122,84 @@
 @keyframes fade-outRight {
   0% {
     opacity: 1;
-    transform: translateX(30%);
+    transform: translateX(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(0);
+    transform: translateX($FadeDistanceXY);
   }
+}
+
+/* 
+Animation Classes
+-------------------------------------------------------------------------------------------------------------------
+*/
+// Fade In
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "entranceEasing");
+}
+
+// Fade Out
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "exitEasing");
+}
+
+// Fade In Down
+.fade-inDown {
+  animation-name: fade-inDown;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "entranceEasing");
+}
+
+// Fade out Down
+.fade-outDown {
+  animation-name: fade-outDown;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "exitEasing");
+}
+
+// Fade In Up
+.fade-inUp {
+  animation-name: fade-inUp;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "entranceEasing");
+}
+
+// Fade out Up
+.fade-outUp {
+  animation-name: fade-outUp;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "exitEasing");
+}
+
+// Fade in Left
+.fade-inLeft {
+  animation-name: fade-inLeft;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "entranceEasing");
+}
+
+// Fade out Left
+.fade-outLeft {
+  animation-name: fade-outLeft;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "exitEasing");
+}
+
+// Fade In Right
+.fade-inRight {
+  animation-name: fade-inRight;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "entranceEasing");
+}
+
+// Fade Out Right
+.fade-outRight {
+  animation-name: fade-outRight;
+  animation-duration: timingProp($timing, "fade", "duration");
+  animation-timing-function: timingProp($timing, "fade", "exitEasing");
 }

@@ -20,8 +20,10 @@ import buffer from 'vinyl-buffer'
 import source from 'vinyl-source-stream'
 import watchify from 'watchify'
 
-// ERROR HANDLER
 
+var jsonSass = require('gulp-json-sass');
+
+// ERROR HANDLER
 const onError = function(error) {
   notifier.notify({
     'title': 'Error',
@@ -33,7 +35,6 @@ const onError = function(error) {
 }
 
 // HTML
-
 gulp.task('html', () => {
   return gulp.src('src/html/**/*.html')
     .pipe(plumber({ errorHandler: onError }))
@@ -42,23 +43,52 @@ gulp.task('html', () => {
     .pipe(gulp.dest('dist'))
 })
 
-// SASS
+// Styleguide HTML
+gulp.task('styleguide:html', () => {
+  return gulp.src('src/bo/_styleguide/*.html')
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(fileinclude({ prefix: '@', basepath: 'src/bo/' }))
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(gulp.dest('dist/styleguide'))
+})
 
+// Bo Images
+gulp.task('bo:images', () => {
+  return gulp.src('src/bo/**/**/*.{gif,jpg,png,svg}')
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(changed('dist/assets/images'))
+    .pipe(imagemin({ progressive: true, interlaced: true }))
+    .pipe(gulp.dest('dist/assets/images'))
+})
+
+// SASS
 gulp.task('sass', () => {
-  return gulp.src('src/sass/application.scss')
+  return gulp.src('src/bo/application.scss')
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({ browsers: [ 'last 2 versions', 'ie >= 9', 'Android >= 4.1' ] }))
     .pipe(nano({ safe: true }))
     .pipe(sourcemaps.write('./maps', { addComment: false }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/assets/css/'))
 })
 
+// JSON to SASS
+gulp.task('json-sass', () => {
+/*
+   return fs.createReadStream('src/bo/00-variables/global-settings.json')
+    .pipe(jsonSass({
+      //prefix: '$settings: ',
+    }))
+    .pipe(source('theme.json'))
+    .pipe(rename('theme.scss'))
+    .pipe(gulp.dest('./'));
+    */
+})
 // JS
 
 const browserifyArgs = {
-  entries: 'src/js/main.js',
+  entries: 'src/bo/application.js',
   debug: true,
   transform: [ 'babelify' ]
 }
@@ -79,7 +109,7 @@ const build = () => {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(uglify())
     .pipe(sourcemaps.write('./maps', { addComment: false }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/assets/js/'))
     .pipe(sync.stream())
 }
 
@@ -87,13 +117,12 @@ bundler.on('update', build)
 gulp.task('js', build)
 
 // IMAGES
-
 gulp.task('images', () => {
   return gulp.src('src/images/**/*.{gif,jpg,png,svg}')
     .pipe(plumber({ errorHandler: onError }))
     .pipe(changed('dist'))
     .pipe(imagemin({ progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('dist/assets/images'))
 })
 
 // VIDEOS, FONTS, FAVICON
@@ -119,7 +148,6 @@ const outputs = [
 })
 
 // SERVER
-
 const server = sync.create()
 const reload = sync.reload
 
@@ -150,15 +178,15 @@ const options = {
 gulp.task('server', () => sync(options))
 
 // WATCH
-
 gulp.task('watch', () => {
   gulp.watch('src/html/**/*.html', ['html', reload])
-  gulp.watch('src/sass/**/*.scss', ['sass', reload])
-  gulp.watch('src/sass/**/**/*.scss', ['sass', reload])
+  gulp.watch(['src/bo/_styleguide/*.html', 'src/bo/_styleguide/**/*.html'], ['styleguide:html', reload])
+  gulp.watch(['src/bo/**/*.scss','src/bo/**/**/*.scss'], ['sass', reload])
+  gulp.watch('src/bo/00-variables/global-settings.json', ['json-sass', reload])
   gulp.watch('src/images/**/*.{gif,jpg,png,svg}', ['images', reload])
+  gulp.watch('src/bo/**/**/*.{gif,jpg,png,svg}', ['bo:images', reload])
 })
 
 // BUILD & DEFAULT TASK
-
-gulp.task('build', ['html', 'sass', 'js', 'images', 'videos', 'fonts', 'favicon'])
+gulp.task('build', ['html', 'styleguide:html', 'sass', 'js', 'images', 'bo:images', 'videos', 'fonts', 'favicon'])
 gulp.task('default', ['server', 'build', 'watch'])

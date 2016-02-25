@@ -4,6 +4,23 @@
 //
 //====================
 
+/* 
+Variables
+-------------------------------------------------------------------------------------------------------------------
+*/
+$timing: (
+  scale: (
+    entranceEasing    : cubic-bezier(0.165, 0.84, 0.44, 1),
+    exitEasing        : cubic-bezier(0.165, 0.84, 0.44, 1),
+    duration          : 300ms
+  )
+);
+
+
+/* 
+Keyframes
+-------------------------------------------------------------------------------------------------------------------
+*/
 // Scale Up
 @keyframes scale-up {
   0% {
@@ -28,4 +45,20 @@
     opacity: 0;
     transform: scale(0.75) translateX(0px) translateY(0px);
   }  
+}
+
+/* 
+Animation Classes
+-------------------------------------------------------------------------------------------------------------------
+*/
+.scale-up {
+  animation-name: scale-up;
+  animation-duration: timingProp($timing, "scale", "duration");
+  animation-timing-function: timingProp($timing, "scale", "entranceEasing");
+}
+
+.scale-down {
+  animation-name: scale-down;
+  animation-duration: timingProp($timing, "scale", "duration");
+  animation-timing-function: timingProp($timing, "scale", "exitEasing");
 }

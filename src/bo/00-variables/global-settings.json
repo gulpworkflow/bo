@@ -8,7 +8,7 @@
       "success"           : "#ffffff",
       "info"              : "#ffffff",
       "warning"           : "#ffffff",
-      "error"             : "#ffffff",
+      "error"             : "#ffffff"
     }
   },
   "breakpoints" : {
@@ -23,7 +23,7 @@
     "max-width"           : "1120px",
     "gutter-width"        : "1.5rem",
     "enable-flex"         : true,
-    "enable-gridClasses"  : true,
+    "enable-gridClasses"  : true
   },
   "sizing" : {
     "base-boxSizing"      : "border-box",

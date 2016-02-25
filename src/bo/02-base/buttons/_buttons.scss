@@ -8,6 +8,8 @@ $all-buttons:     '.btn,
                    input[type=submit],
                    input[type=button]' !default;
 
+$ui-color-action: color(base,dark);
+
 // -- Transition
 $button-transition     : all $base-duration $base-timing;
 

@@ -1,31 +1,7 @@
-@include("_styleguide/_partials/header.html")
-@include("_styleguide/_partials/nav.html")
+@import "../01-tools/sass/color-maps";
 
-<div class="container">
-  <h1 class="jumbo p-t-lg" id="main">Variables</h1>
-  <h1 class="font-weight-normal">
-    These global settings are used to keep the look & feel of your web application consistent and easy to maintain.
-  </h1>
-  <ul class="p-t">
-    <li><a href="#colorpalette">Color Palette</a></li>
-    <li><a href="#colorpalette">Color Defaults</a></li>
-    <li><a href="#colorpalette">Sizing & Spacing</a></li>
-    <li><a href="#colorpalette">Grid Settings</a></li>
-    <li><a href="#colorpalette">Breakpoints</a></li>
-    <li><a href="#colorpalette">Transitions & Timing</a></li>
-  </ul>
-  <div class="row p-t-lg">
-    <div class="col-md-12">
-      <h2 id="colorpalette">Color Palette</h2>
-    </div>
-    <div class="col-md-6">
-      <p>The purpose of this HTML is to help determine what default settings are with Bitters and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
-    </div>
-    <div class="col-md-6">
-      <pre>
-        <code class="language-scss">
 /* 
-Color Palette. 
+Color Pallette. 
 Tints available as a function 
 */
 $colors : (
@@ -45,15 +21,7 @@ $colors : (
     error                   : #ffffff
   )
 );
-        </code>
-     </pre>
-    </div>
-  </div>
 
-<br>
-<br>
-<pre>
-   <code class="language-scss">
 /*
 Sizing & Spacing.
 All layout spacing and ui-sizing should be built on top of this variable map
@@ -84,7 +52,7 @@ These are used
   $grid-columns             : 12;
   $grid-gutter-width        : $base-spacing;
   $enable-flex              : true;
-  $enable-grid-classes      : false;
+  $enable-grid-classes      : true;
   $max-width                : 1120px;
 
 /* 
@@ -109,10 +77,3 @@ Use these settings to keep overall animation feeling consistent.
   $mediumDuration           : 300ms !default;
   $slowDuration             : 500ms !default;
   $default-transition-all   : all $base-duration $base-timing;
-
-  </code>
-  </pre> 
-</div>
-
-@include("_styleguide/_partials/footer.html")
-

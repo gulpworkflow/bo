@@ -49,7 +49,7 @@ h4,h5,h6
 .sectionLabel {
   @include label;
   margin-bottom: 1rem;
-  color: $brand-primary-color;
+  color: color(brand,primary);
 }
 
 

@@ -30,6 +30,7 @@ $active-tab-color: #ff0000;
 .Tabs .Tab-item .Tab-content {
   display: none;
   width: 100%;
+
   @include media-breakpoint-up(md) {
     float: left;
   }

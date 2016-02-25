@@ -1,41 +1,5 @@
-<!DOCTYPE html>
-
-<html lang="en-US">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="application.css">
-  </head>
-  <body class="body p-t-lg">
-
-<header class="NavBar pos-f-t">
-  <div class="NavBar-wrapper">
-    <a class="NavBar-anchor" href="javascript:void(0)">
-      <img class="NavBar-logo" src="https://avatars3.githubusercontent.com/u/15914827?v=3&s=200" alt="Logo Image">
-    </a>
-    <a class="NavBar-mobileToggle js-menu-toggle" href="#">Menu</a>
-    <nav class="NavBar-menuWrapper" role="navigation">
-      <ul class="NavBar-menu show js-NavBar-mainMenu">
-        <li class="NavBar-item">
-          <a class="NavBar-link" href="#">Variables</a>
-        </li>
-        <li class="NavBar-item">
-          <a class="NavBar-link" href="#">Base</a>
-        </li>
-        <li class="NavBar-item">
-          <a class="NavBar-link" href="#">Componenets</a>
-        </li>
-        <li class="NavBar-item">
-          <a class="NavBar-link" href="#">Utilities</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+@include("_styleguide/_partials/header.html")
+@include("_styleguide/_partials/nav.html")
 
   <div class="container">
 <h1 class="jumbo m-t-lg">Components</h1>
@@ -291,53 +255,7 @@
     </div>
   </div>
 </div>
-<!-- END: Tooltip -->
-<hr class="m-t-lg">
-<!-- Animations -->
-<h1>Animations</h1>
-
-<div style="width: 25%; float: left;">
-  <ul class="p-l-0" style="list-style: none;">
-    <li><b>Scale</b></li>
-    <ul>
-      <li><a class="animation-trigger" data-animation-name="scale-up" href="#">Scale Up</a></li>
-      <li><a class="animation-trigger" data-animation-name="scale-down" href="#">Scale Down</a></li>
-    </ul>
-    <li><b>Fade</b></li>
-    <ul>
-    <li><a class="animation-trigger" data-animation-name="fade-in" href="#">Fade In</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-out" href="#">Fade Out</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-inDown" href="#">Fade In Down</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-outDown" href="#">Fade Out Down</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-inUp" href="#">Fade In Up</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-outUp" href="#">Fade Out Up</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-inLeft" href="#">Fade In Left</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-outLeft" href="#">Fade Out Left</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-inRight" href="#">Fade In Right</a></li>
-    <li><a class="animation-trigger" data-animation-name="fade-outRight" href="#">Fade Out Right</a></li>
-  </ul>
-    <li><b>Slide</b></li>
-    <ul>
-      <li><a class="animation-trigger" data-animation-name="slide-inUp" href="#">Slide In Up</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-inDown" href="#">Slide In Down</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-inLeft" href="#">Slide In Left</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-inRight" href="#">Slide In Right</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-outUp" href="#">Slide Out Up</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-outDown" href="#">Slide Out Down</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-outLeft" href="#">Slide Out Left</a></li>
-      <li><a class="animation-trigger" data-animation-name="slide-outRight" href="#">Slide Out Right</a></li>
-    </ul>
-  </ul>
-</div>
-<div style="width: 75%; float: left;">
-  <div id="animating-object" style="width: 150px;height: 150px; margin: 0 auto; background-color: blue;"></div>
-</div>
-<!-- END: Animations -->
 <!-- Spacer -->
 <div class="p-a-lg" style="clear: both;"></div>
 <!-- END: Spacer -->
-</body>
-
-   <script src="bundle.js"></script>
-</body>
-</html>
+@include("_styleguide/_partials/footer.html")

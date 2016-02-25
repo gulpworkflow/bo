@@ -4,6 +4,23 @@
 //
 //====================
 
+/* 
+Variables
+-------------------------------------------------------------------------------------------------------------------
+*/
+$timing: (
+  slide: (
+    entranceEasing:   cubic-bezier(0.36, 0.45, 0.67, 1),
+    exitEasing:       cubic-bezier(0.36, 0.45, 0.67, 1),
+    duration:         300ms
+  )
+);
+
+
+/* 
+Keyframes
+-------------------------------------------------------------------------------------------------------------------
+*/
 // Slide In Up
 @keyframes slide-inUp {
   0% {
@@ -82,4 +99,64 @@
   100% {
     transform: translate3d(100%, 0, 0);
   }
+}
+
+/* 
+Animation Classes
+-------------------------------------------------------------------------------------------------------------------
+*/
+// Slide In Up
+.slide-inUp {
+  animation-name: slide-inUp;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "entranceEasing");
+}
+
+// Slide In Down
+.slide-inDown {
+  animation-name: slide-inDown;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "entranceEasing");
+}
+
+// Slide In Left
+.slide-inLeft {
+  animation-name: slide-inLeft;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "entranceEasing");
+}
+
+// Slide In Right
+.slide-inRight {
+  animation-name: slide-inRight;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "entranceEasing");
+}
+
+// Slide Out Up
+.slide-outUp {
+  animation-name: slide-outUp;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "exitEasing");
+}
+
+// Slide Out Down
+.slide-outDown {
+  animation-name: slide-outDown;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "exitEasing");
+}
+
+// Slide Out Left
+.slide-outLeft {
+  animation-name: slide-outLeft;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "exitEasing");
+}
+
+// Slide Out Right
+.slide-outRight {
+  animation-name: slide-outRight;
+  animation-duration: timingProp($timing, "slide", "duration");
+  animation-timing-function: timingProp($timing, "slide", "exitEasing");
 }

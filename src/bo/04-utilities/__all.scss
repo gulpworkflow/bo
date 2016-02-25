@@ -6,12 +6,11 @@
 // files, all CSS selectors should be class names.
 //
 //---------------------------
-@import 'u-animation';
-@import 'u-clearfix';
-@import 'u-color';
-@import 'u-positioning';
-@import 'u-responsive';
-@import 'u-sizing';
-@import 'u-spacing';
-@import 'u-typography';
-@import 'u-visibility';
+@import 'animations/_all';
+@import 'color/u-color';
+@import 'positioning/u-clearfix';
+@import 'positioning/u-positioning';
+@import 'sizing/u-sizing';
+@import 'spacing/u-spacing';
+@import 'typography/u-typography';
+@import 'visibility/u-visibility';

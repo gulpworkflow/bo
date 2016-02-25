@@ -39,7 +39,7 @@ html,body {
 
 body {
   @include body-copy;
-  color: $base-font-color;
+  color: color(base,dark);
   font-feature-settings: "kern", "liga", "pnum";
   text-size-adjust: 100%;
   text-size-adjust: 100%;
